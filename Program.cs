@@ -12,6 +12,7 @@ builder.Services.AddCors(options =>
         policy =>
         {
             policy.WithOrigins("https://localhost:7063");
+            policy.WithOrigins("https://justpostit.azurewebsites.net");
         });
 });
 builder.Services.AddControllers();

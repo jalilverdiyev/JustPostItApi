@@ -379,7 +379,7 @@ public static class DbController
                 $"INSERT INTO Posts(OwnerId,Text) VALUES({post.OwnerId},'{post.Text}'); SELECT last_insert_id()";
             MySqlCommand commandPost = new MySqlCommand(queryPost, Conn);
             post.Id = Convert.ToInt32(commandPost.ExecuteScalar());
-
+            result += post.Id != 0 ? 1 : 0;
             if (post.Photos != null)
             {
                 List<string> paths = FileManager.SaveFiles(post.Photos, ImageType.Post);
